@@ -1,0 +1,7 @@
+{
+    "name": "google_translate",
+    "description": "Google Translate",
+    "version_number": "1.0.0",
+    "dependencies": ["LT_Schmiddy-EZ_Text_Replacer_API-2.3.0"],
+    "website_url": "https://github.com/ignwombat/mm_poor_translation"
+}

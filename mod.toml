@@ -5,24 +5,24 @@
 
 # Unique ID of this mod. Pick something long enough that it'll never be the same as any other mod.
 # The name displayed in the mod management menu is separate from this so this doesn't need to be human readable.
-id = "wommy_cinema"
+id = "wommy_translated"
 
 # Version of this mod.
 version = "1.0.0"
 
 # The name that will show up for this mod in the mod menu. This should be human readable.
-display_name = "ABSOLUTE CINEMA"
+display_name = "Google Translate"
 
 # The description that will show up when this mod is displayed in the mod menu. This should be human readable.
 description =  """
-This mod displays ABSOLUTE CINEMA whenever you bonk, get frozen or die.
+This mod transforms every dialog in the game to a poorly translated one.
 
-This is my first mod, so don't expect it to function properly.
+Due to rate limiting, Google Translate wasn't actually used here, rather libretranslate.
 """
 
 # A short description that will show up in this mod's entry in the mod list. This should be human readable and kept short
 # to prevent it from being cut off due to the limited space.
-short_description = "Displays ABSOLUTE CINEMA whenever you bonk, freeze or die"
+short_description = "You got the key to the presidential suite!"
 
 # Authors of this mod.
 authors = [ "IgnWombat" ]
@@ -37,6 +37,7 @@ minimum_recomp_version = "1.2.0"
 dependencies = [
 # Example dependency:
 #    "modname:1.0.0"
+    "MM_EZ_Text_Replacer_API:2.0.0"
 ]
 
 # Native libraries (e.g. DLLs) and the functions they export.
@@ -52,7 +53,7 @@ native_libraries = [
 elf_path = "build/mod.elf"
 
 # Output mod filename.
-mod_filename = "wommy_cinema"
+mod_filename = "wommy_translate"
 
 # Reference symbol files.
 func_reference_syms_file = "Zelda64RecompSyms/mm.us.rev1.syms.toml"
@@ -60,27 +61,3 @@ data_reference_syms_files = [ "Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "Zel
 
 # Additional files to include in the mod.
 additional_files = [ ]
-
-[[manifest.config_options]]
-id = "cinema_on_bonk"
-name = "Cinema on Bonk"
-description = "Display ABSOLUTE CINEMA when the player bonks"
-type = "Enum"
-options = [ "Off", "On" ]
-default = "On"
-
-[[manifest.config_options]]
-id = "cinema_on_frozen"
-name = "Cinema on Ice Trap"
-description = "Display ABSOLUTE CINEMA when the player is frozen"
-type = "Enum"
-options = [ "Off", "On" ]
-default = "On"
-
-[[manifest.config_options]]
-id = "cinema_on_death"
-name = "Cinema on Death"
-description = "Display ABSOLUTE CINEMA when the player dies"
-type = "Enum"
-options = [ "Off", "On" ]
-default = "On"
