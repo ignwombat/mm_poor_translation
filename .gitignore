@@ -11,4 +11,5 @@
 patches.map
 build/
 .vscode/settings.json
-translate/checkpoint*.c
+translate/checkpoint_data.c
+translate/checkpoint**.c
