@@ -30,7 +30,7 @@ export default function convertDefineToEztr(raw: string): string|null {
   const headerArgs = splitTopLevelComma(headerMatch[1]);
   if (headerArgs.length < 6) throw new Error("HEADER() missing arguments");
 
-  const textBoxType = headerArgs[0].trim().substring(0, 4);
+  const textBoxType = defineArgs[1].trim();
   const textBoxYPos = defineArgs[2].trim();
   const displayIcon = headerArgs[1].trim();
   const nextMsgId = headerArgs[2].trim() === '0xFFFF' ? 'EZTR_NO_VALUE' : headerArgs[2].trim();
@@ -125,17 +125,16 @@ export default function convertDefineToEztr(raw: string): string|null {
     .replaceAll('[Z]', '" EZTR_CC_BTN_Z "')
     .replaceAll('[Control-Pad]', '" EZTR_CC_CONTROL_PAD "')
 
-  return 'EZTR_Basic_ReplaceText('
-    + messageId + ','
-    + textBoxType + ','
-    + textBoxYPos + ','
-    + displayIcon + ','
-    + nextMsgId + ','
-    + firstItemRupees + ','
-    + secondItemRupees + ','
-    + 'false,'
-    + contentArg + ','
-    + 'NULL'
-    + restArgsStr
-    + ');'
+  return `EZTR_Basic_ReplaceText(
+    ${messageId},
+    ${textBoxType},
+    ${textBoxYPos},
+    ${displayIcon},
+    ${nextMsgId},
+    ${firstItemRupees},
+    ${secondItemRupees},
+    false,
+    ${contentArg},
+    NULL${restArgsStr}
+);`;
 }

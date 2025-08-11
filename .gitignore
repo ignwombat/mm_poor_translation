@@ -13,3 +13,4 @@ build/
 .vscode/settings.json
 translate/checkpoint_data.c
 translate/checkpoint**.c
+src/poorly_translated.c
